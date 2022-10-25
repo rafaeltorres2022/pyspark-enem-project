@@ -120,6 +120,7 @@ CREATE TABLE "tipo_ensino" (
 );
 
 INSERT INTO tipo_ensino (id, descricao) VALUES
+(0, 'Não Respondeu'),
 (1, 'Ensino Regular'),
 (2, 'Educação Especial - Modalidade Substitutiva');
 
@@ -304,7 +305,8 @@ INSERT INTO situacao_redacao (id, descricao) VALUES
 (6, 'Fuga ao tema'),
 (7, 'Não atendimento ao tipo textual'),
 (8, 'Texto insuficiente'),
-(9, 'Parte desconectada');
+(9, 'Parte desconectada'),
+(10, 'Sem Nota');
 
 
 CREATE TABLE "competencias_redacao" (
@@ -349,10 +351,12 @@ CREATE TABLE "resultados_provas_objetivas" (
 CREATE TABLE "participantes" (
   "pk_numero_inscricao" varchar PRIMARY KEY,
   "fk_faixa_etaria" integer,
+  "ano" integer, 
   "sexo" varchar(1) CHECK ("sexo" in ('M', 'F')),
   "fk_estado_civil" integer,
   "fk_raca" integer,
   "fk_nacionalidade" integer,
+  "fk_escola" integer,
   "fk_conclusao_em" integer,
   "fk_ano_conclusao_em" integer,
   "fk_tipo_escola" integer,
@@ -455,3 +459,5 @@ ALTER TABLE "escolas" ADD FOREIGN KEY ("fk_localizacao") REFERENCES "localizacao
 ALTER TABLE "escolas" ADD FOREIGN KEY ("fk_situacao_funcionamento") REFERENCES "situacao_funcionamento" ("id");
 
 ALTER TABLE "participantes" ADD FOREIGN KEY ("fk_local_aplicacao_prova") REFERENCES "municipios" ("pk_codigo_municipio");
+
+ALTER TABLE "participantes" ADD FOREIGN KEY ("fk_escola") REFERENCES "escolas" ("id");
