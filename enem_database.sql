@@ -382,6 +382,7 @@ CREATE TABLE "dependencia_adm" (
 );
 
 INSERT INTO dependencia_adm (id, descricao) VALUES
+(0, 'Sem Informação'),
 (1, 'Federal'),
 (2, 'Estadual'),
 (3, 'Municipal'),
@@ -394,6 +395,7 @@ CREATE TABLE "localizacao" (
 );
 
 INSERT INTO localizacao (id, descricao) VALUES
+(0, 'Não Informado'),
 (1, 'Urbana'),
 (2, 'Rural');
 
@@ -404,6 +406,7 @@ CREATE TABLE "situacao_funcionamento" (
 );
 
 INSERT INTO situacao_funcionamento (id, descricao) VALUES
+(0, 'Não Informado'),
 (1, 'Em atividade'),
 (2, 'Paralisada'),
 (3, 'Extinta'),
